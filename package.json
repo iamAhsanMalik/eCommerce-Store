@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce_store",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "eCommerce Store - Built via MERN Stack",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "author": "Malik Ahsan Joyia <iamAhsanJoyia@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "nodemon": "^2.0.12"
+  }
+}

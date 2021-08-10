@@ -1,7 +1,7 @@
 import React from 'react';
 const Rating = ({ starRating, avgRating, color }) => {
   return (
-    <div>
+    <>
       <span>
         <i
           style={{ color: color }}
@@ -63,7 +63,7 @@ const Rating = ({ starRating, avgRating, color }) => {
         ></i>
       </span>
       <span>{` ${avgRating && avgRating}`}</span>
-    </div>
+    </>
   );
 };
 
