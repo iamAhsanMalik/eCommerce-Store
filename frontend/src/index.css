@@ -1,0 +1,11 @@
+.body-section{
+  min-height: 82vh;
+} 
+.links{
+  text-decoration: none;
+  color: inherit;
+}
+
+.links:hover{
+  color: inherit;
+}
