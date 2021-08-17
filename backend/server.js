@@ -1,20 +1,32 @@
 import express from 'express';
-import products from './data/products.js';
-const server = express();
+import dotenv from 'dotenv';
+import connectDB from './config/db.js';
+import productRoutes from './routes/productsRoutes.js';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+const app = express();
 
-server.get('/', (req, res) => {
+// @desc    -   Access .env file configurations
+dotenv.config();
+
+// @desc    -   Call database connection function
+connectDB();
+
+// @desc -  Homepage Route
+app.get('/', (req, res) => {
   res.send('Home');
   res.end();
 });
+// @desc -  Products Route
+app.use('/api/products', productRoutes);
 
-server.get('/api/products', (req, res) => {
-  res.json(products);
-  res.end();
-});
+// @desc -  404 Not Found Error Handler Middleware
+app.use(notFound);
 
-server.get('/api/product/:id', (req, res) => {
-  const product = products.find((product) => product._id === req.params.id);
-  res.send(product);
-});
+// @desc -  Custom Error Handler Middleware
+app.use(errorHandler);
 
-server.listen(5000, console.log('Api is running'));
+// @desc -  Application access port
+const PORT = process.env.PORT || 5000;
+
+// @desc -  Application listening port
+app.listen(PORT);

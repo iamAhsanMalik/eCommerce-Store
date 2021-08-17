@@ -7,25 +7,25 @@ const Product = ({ product }) => {
   return (
     <>
       <Card className='p-3 rounded h-100'>
-        <Link to={`/product/${product._id}`}>
-          <Card.Img src={product.image} />
+        <Link to={`/api/products/${product._id}`}>
+          <Card.Img src={product.productImage} />
         </Link>
         <Card.Body>
           <Card.Text>
             <Rating
-              starRating={product.rating}
+              starRating={product.productRating}
               avgRating={`${product.numReviews} Reviews`}
             />
           </Card.Text>
           <Card.Text as='h4'>
-            <strong>{`$${product.price}`}</strong>
+            <strong>{`$${product.productPrice}`}</strong>
           </Card.Text>
           <Link
-            to={`/product/${product._id}`}
+            to={`/api/products/${product._id}`}
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
             <Card.Title as='div'>
-              <strong>{product.name}</strong>
+              <strong>{product.productName}</strong>
             </Card.Title>
           </Link>
         </Card.Body>

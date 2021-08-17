@@ -9,7 +9,7 @@ const ProductScreen = ({ match }) => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const { data } = await axios.get(`/api/product/${match.params.id}`);
+      const { data } = await axios.get(`/api/products/${match.params.id}`);
       setProduct(data);
     };
     return fetchProduct();
@@ -24,28 +24,28 @@ const ProductScreen = ({ match }) => {
       <Row className='my-5'>
         <Col md={5}>
           <Card>
-            <Card.Img src={product.image} alt={product.name} />
+            <Card.Img src={product.productImage} alt={product.productName} />
           </Card>
         </Col>
 
         <Col md={4}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h4>{product.name}</h4>
+              <h4>{product.productName}</h4>
             </ListGroup.Item>
             <ListGroup.Item>
               <h5>
                 <Rating
-                  starRating={product.rating}
+                  starRating={product.productRating}
                   avgRating={`${product.numReviews} Reviews`}
                 />
               </h5>
             </ListGroup.Item>
             <ListGroup.Item>
-              <h4>{`Price: ${product.price}`}</h4>
+              <h4>{`Price: ${product.productPrice}`}</h4>
             </ListGroup.Item>
             <ListGroup.Item>
-              <p>{`Description: ${product.description}`}</p>
+              <p>{`Description: ${product.productDescription}`}</p>
             </ListGroup.Item>
           </ListGroup>
         </Col>
@@ -56,7 +56,7 @@ const ProductScreen = ({ match }) => {
                 <Row>
                   <Col>Price:</Col>
                   <Col>
-                    <strong>{`$${product.price}`}</strong>
+                    <strong>{`$${product.productPrice}`}</strong>
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -65,7 +65,7 @@ const ProductScreen = ({ match }) => {
                   <Col>Status:</Col>
                   <Col>
                     <strong>
-                      {product.countInStock ? 'In Stock' : 'Out of Stock'}
+                      {product.productInStock ? 'In Stock' : 'Out of Stock'}
                     </strong>
                   </Col>
                 </Row>
@@ -74,7 +74,7 @@ const ProductScreen = ({ match }) => {
                 <Button
                   className='btn btn-dark'
                   type='button'
-                  disabled={!product.countInStock}
+                  disabled={!product.productInStock}
                 >
                   Add to Cart
                 </Button>
