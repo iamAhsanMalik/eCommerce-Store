@@ -14,7 +14,7 @@ const Header = () => {
           </LinkContainer>
           <Nav className='ms-auto'>
             <LinkContainer to='/'>
-              <Nav.Link className='active'>
+              <Nav.Link>
                 <i className='fas fa-home'></i> HOME
               </Nav.Link>
             </LinkContainer>
