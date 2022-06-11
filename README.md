@@ -32,5 +32,3 @@ MongoDB
 
 ## Author
 Malik Ahsan Joyia
-
-### Note: Project in under development and I am working on it to make it full featured eCommerce Store. I have also plan to make a complete tutorial about this project on my youtube channel https://Youtube.com/BrightSols
